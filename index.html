@@ -13,16 +13,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sand:#f6f1e7;
-    --cream:#fbf8f1;
-    --ink:#2f2a24;
-    --muted:#8a7f70;
-    --line:#e5dccc;
-    --accent:#b0603d;      /* terracotta */
-    --accent-soft:#e8d9c8;
-    --pine:#5c6b53;        /* muted forest green */
-    --gold:#c69a4c;
-    --shadow:0 18px 40px -24px rgba(60,45,30,.45);
+    --sand:#e8efec;        /* misty sage page bg */
+    --cream:#f6faf8;       /* cool near-white card */
+    --ink:#213230;         /* deep pine slate */
+    --muted:#6d817b;       /* sage grey */
+    --line:#d2ded9;
+    --accent:#2f7d6d;      /* alpine teal-green */
+    --accent-soft:#d3e7e0;
+    --pine:#3d5a4d;        /* deep forest green */
+    --gold:#3f88a3;        /* lake blue (secondary accent) */
+    --shadow:0 18px 40px -24px rgba(25,50,45,.45);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -45,7 +45,7 @@
     padding:90px 24px 72px;
     color:#fff;
     overflow:hidden;
-    background:#2f2a24;
+    background:#1a2a26;
   }
   .hero .bg{
     position:absolute;inset:0;
@@ -60,11 +60,11 @@
   .hero::after{
     content:"";position:absolute;inset:0;
     background:
-      linear-gradient(180deg,rgba(30,24,18,.55) 0%,rgba(30,24,18,.15) 35%,rgba(30,24,18,.35) 70%,rgba(30,24,18,.75) 100%);
+      linear-gradient(180deg,rgba(18,32,29,.55) 0%,rgba(18,32,29,.15) 35%,rgba(18,32,29,.35) 70%,rgba(18,32,29,.75) 100%);
   }
   .hero>*{position:relative;z-index:2}
   .eyebrow{
-    letter-spacing:.35em;font-size:.8rem;color:#f0d9b8;
+    letter-spacing:.35em;font-size:.8rem;color:#cfe6de;
     text-transform:uppercase;margin-bottom:20px;font-weight:500;
     text-shadow:0 2px 12px rgba(0,0,0,.4);
   }
@@ -73,7 +73,7 @@
     color:#fff;margin-bottom:18px;text-shadow:0 4px 24px rgba(0,0,0,.45);
   }
   .hero .sub{
-    font-size:clamp(1.05rem,2.4vw,1.4rem);color:#f4ede2;max-width:640px;
+    font-size:clamp(1.05rem,2.4vw,1.4rem);color:#eef5f2;max-width:640px;
     text-shadow:0 2px 12px rgba(0,0,0,.5);
   }
   .hero .dates{
@@ -95,13 +95,13 @@
     border-radius:16px;padding:14px 20px;min-width:88px;backdrop-filter:blur(8px);
   }
   .cd-num{font-family:'Frank Ruhl Libre',serif;font-size:2.2rem;font-weight:900;color:#fff;line-height:1}
-  .cd-label{font-size:.75rem;color:#f0d9b8;letter-spacing:.1em;margin-top:6px}
+  .cd-label{font-size:.75rem;color:#cfe6de;letter-spacing:.1em;margin-top:6px}
   .cd-live{margin-top:20px;font-size:1.15rem;color:#fff;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.4)}
 
   /* ---------- NAV ---------- */
   nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(246,241,231,.92);backdrop-filter:blur(10px);
+    background:rgba(232,239,236,.92);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   nav .wrap{max-width:1000px;margin:0 auto;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:12px 16px}
@@ -134,7 +134,7 @@
     color:#fff;padding:5px 16px;border-radius:999px;margin-bottom:14px;
   }
   #part-a .part-tag{background:var(--pine)}
-  #part-b .part-tag{background:#7a6a9c}
+  #part-b .part-tag{background:#3f88a3}
   #part-c .part-tag{background:var(--accent)}
   .part-head h2{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:900}
   .part-head p{color:var(--muted);margin-top:8px;font-size:1.05rem}
@@ -170,10 +170,10 @@
   /* callouts */
   .note{
     margin-top:16px;padding:12px 16px;border-radius:14px;font-size:.95rem;
-    background:#fff7ec;border:1px dashed var(--gold);color:#7a5a20;
+    background:#e6f0f2;border:1px dashed var(--gold);color:#255a6b;
     display:flex;gap:10px;align-items:flex-start;
   }
-  .note.rest{background:#f0f3ec;border-color:var(--pine);color:#42513a}
+  .note.rest{background:#e4efe9;border-color:var(--pine);color:#33513f}
   .note .lbl{font-weight:700;margin-inline-end:4px}
 
   /* triage choice */
@@ -193,12 +193,12 @@
   .divider{
     position:relative;height:300px;margin:8px 0 56px;overflow:hidden;border-radius:22px;
     display:flex;align-items:center;justify-content:center;text-align:center;
-    background:#2f2a24;box-shadow:var(--shadow);
+    background:#1a2a26;box-shadow:var(--shadow);
   }
   .divider .bg{position:absolute;inset:0;background-size:cover;background-position:center 55%;transform:scale(1.05)}
-  .divider::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,24,18,.5),rgba(30,24,18,.35))}
+  .divider::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,29,.5),rgba(18,32,29,.35))}
   .divider .cap{position:relative;z-index:2;color:#fff}
-  .divider .cap .k{letter-spacing:.3em;font-size:.75rem;color:#f0d9b8;text-transform:uppercase}
+  .divider .cap .k{letter-spacing:.3em;font-size:.75rem;color:#cfe6de;text-transform:uppercase}
   .divider .cap h3{font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.5);margin-top:6px}
 
   /* ---------- MAP PIN LINKS ---------- */
