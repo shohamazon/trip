@@ -189,6 +189,42 @@
   footer .credit{font-size:.78rem;margin-top:14px;opacity:.7}
   footer a{color:var(--muted)}
 
+  /* ---------- PHOTO DIVIDER ---------- */
+  .divider{
+    position:relative;height:300px;margin:8px 0 56px;overflow:hidden;border-radius:22px;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:#2f2a24;box-shadow:var(--shadow);
+  }
+  .divider .bg{position:absolute;inset:0;background-size:cover;background-position:center 55%;transform:scale(1.05)}
+  .divider::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,24,18,.5),rgba(30,24,18,.35))}
+  .divider .cap{position:relative;z-index:2;color:#fff}
+  .divider .cap .k{letter-spacing:.3em;font-size:.75rem;color:#f0d9b8;text-transform:uppercase}
+  .divider .cap h3{font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.5);margin-top:6px}
+
+  /* ---------- MAP PIN LINKS ---------- */
+  a.map{
+    display:inline-flex;align-items:center;gap:3px;text-decoration:none;
+    color:var(--accent);font-weight:600;font-size:.82rem;vertical-align:middle;
+    background:var(--accent-soft);padding:1px 8px 1px 6px;border-radius:999px;
+    margin-inline-start:6px;transition:.15s;white-space:nowrap;
+  }
+  a.map:hover{background:var(--accent);color:#fff}
+  a.map svg{width:13px;height:13px}
+
+  /* ---------- TODAY HIGHLIGHT ---------- */
+  .day.today{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-soft),0 18px 40px -20px rgba(176,96,61,.6);
+  }
+  .day.today::before{width:7px}
+  .today-badge{
+    display:none;align-items:center;gap:5px;
+    background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;
+    padding:3px 12px;border-radius:999px;letter-spacing:.05em;
+  }
+  .day.today .today-badge{display:inline-flex}
+  .day.past{opacity:.62}
+
   /* ---------- SCROLL REVEAL ---------- */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
   .reveal.in{opacity:1;transform:none}
@@ -278,31 +314,31 @@
     </div>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">26.07</span><span class="day-name">יום ראשון</span></div>
+      <div class="day-head" data-date="2026-07-26"><span class="day-date">26.07</span><span class="day-name">יום ראשון</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">נחיתה וחדירה לשטח הסלובקי</div>
       <ul class="tl">
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-plane"/></svg></span><span class="time">14:00</span><span class="txt">נחיתה בשדה התעופה בקרקוב (KRK), איסוף הרכב השכור.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-car"/></svg></span><span class="time">15:30</span><span class="txt">תחילת נסיעה דרומה.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-cart"/></svg></span><span class="time">17:00</span><span class="txt">עצירה להצטיידות בסופרמרקט גדול (פולני או סלובקי) — ירקות, מוצרי בסיס וכל מה שצריך כדי לבשל את נתחי הבשר במטבח המאובזר שמחכה לנו.</span></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></span><span class="time">18:30</span><span class="txt">צ׳ק־אין ל<b>"Chatka u Bratka"</b> בז׳דיאר וארוחת ערב ראשונה במרפסת.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></span><span class="time">18:30</span><span class="txt">צ׳ק־אין ל<b>"Chatka u Bratka"</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Chatka%20u%20Bratka%20Zdiar" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a> בז׳דיאר וארוחת ערב ראשונה במרפסת.</span></li>
       </ul>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">27.07</span><span class="day-name">יום שני</span></div>
+      <div class="day-head" data-date="2026-07-27"><span class="day-date">27.07</span><span class="day-name">יום שני</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">פסגות הגובה ואגם אלפיני</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-cablecar"/></svg></span><span class="time">בוקר</span><span class="txt">עלייה ברכבל מטטרנסקה לומניצה לתחנת האגם <b>Skalnaté Pleso</b>. מסלול הליכה קליל מסביב לאגם וזמן משחקים ב־Marmot Land.</span></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-lake"/></svg></span><span class="time">אחה״צ</span><span class="txt">קפיצה קצרה לאגם <b>שטרבסקה פלסו (Štrbské Pleso)</b> להליכה נינוחה, וחזרה לבקתה בערב.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-cablecar"/></svg></span><span class="time">בוקר</span><span class="txt">עלייה ברכבל מטטרנסקה לומניצה לתחנת האגם <b>Skalnaté Pleso</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Skalnate%20Pleso" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>. מסלול הליכה קליל מסביב לאגם וזמן משחקים ב־Marmot Land.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-lake"/></svg></span><span class="time">אחה״צ</span><span class="txt">קפיצה קצרה לאגם <b>שטרבסקה פלסו (Štrbské Pleso)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Strbske%20Pleso" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a> להליכה נינוחה, וחזרה לבקתה בערב.</span></li>
       </ul>
       <div class="note"><svg class="ic" viewBox="0 0 24 24"><use href="#i-choice"/></svg><span><span class="lbl">טריאז׳ דינמי:</span>רכבת ההרים Tatrabob — רק אם אין תור ארוך.</span></div>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">28.07</span><span class="day-name">יום שלישי</span></div>
+      <div class="day-head" data-date="2026-07-28"><span class="day-date">28.07</span><span class="day-name">יום שלישי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">נוף צמרות ועומק האדמה</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-tree"/></svg></span><span class="time">בוקר</span><span class="txt">הליכה ל<b>"שביל צמרות העצים" (Bachledka Treetop Walk)</b> הנמצא ממש קרוב אלינו בז׳דיאר.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-tree"/></svg></span><span class="time">בוקר</span><span class="txt">הליכה ל<b>"שביל צמרות העצים" (Bachledka Treetop Walk)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Bachledka%20Treetop%20Walk" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a> הנמצא ממש קרוב אלינו בז׳דיאר.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></span><span class="time">צהריים</span><span class="txt">חזרה לבקתה למנוחה וצהריים.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-cave"/></svg></span><span class="time">אחה״צ</span><span class="txt">אופציונלי — אם יש אנרגיה, סיור במערת בליאנסקה (Belianska jaskyňa). אם רוצים לנוח, נשארים באווירה הרגועה של הבקתה.</span></li>
       </ul>
@@ -310,14 +346,23 @@
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">29.07</span><span class="day-name">יום רביעי</span></div>
+      <div class="day-head" data-date="2026-07-29"><span class="day-date">29.07</span><span class="day-name">יום רביעי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">טבע זורם במקום פארק מים</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-water"/></svg></span><span class="time">בוקר–צהריים</span><span class="txt">נסיעה ל־<b>Hrebienok</b> (עלייה בפוניקולר מסמוקובץ) והליכה מרהיבה וקלילה במסלול מפלי <b>Studený Potok</b>. טבע נקי, זורם וייחודי לאזור — בלי ההמוניות של פארקי המים.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-water"/></svg></span><span class="time">בוקר–צהריים</span><span class="txt">נסיעה ל־<b>Hrebienok</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Hrebienok" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a> (עלייה בפוניקולר מסמוקובץ) והליכה מרהיבה וקלילה במסלול מפלי <b>Studený Potok</b>. טבע נקי, זורם וייחודי לאזור — בלי ההמוניות של פארקי המים.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-car"/></svg></span><span class="time">אחה״צ</span><span class="txt">חזרה רגועה לכיוון ז׳דיאר, אפשרות לעצירות ספונטניות בעיירות בדרך וסגירת פרק סלובקיה ברוגע.</span></li>
       </ul>
     </article>
   </section>
+
+  <!-- ===== PHOTO DIVIDER: POLAND ===== -->
+  <div class="divider reveal">
+    <div class="bg" data-src="assets/poland.jpg" style="background-image:url('assets/poland-blur.jpg')"></div>
+    <div class="cap">
+      <div class="k">חוצים את הגבול</div>
+      <h3 class="serif">אל הטטרה הפולני</h3>
+    </div>
+  </div>
 
   <!-- ============ PART B ============ -->
   <section class="part" id="part-b">
@@ -328,27 +373,27 @@
     </div>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">30.07</span><span class="day-name">יום חמישי</span></div>
+      <div class="day-head" data-date="2026-07-30"><span class="day-date">30.07</span><span class="day-name">יום חמישי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">חציית גבול ושייט מסורתי</div>
       <ul class="tl">
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-car"/></svg></span><span class="time">בוקר</span><span class="txt">צ׳ק־אאוט ונסיעה צפונה (ללא פקקי בוקר של חצייה כפולה).</span></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-raft"/></svg></span><span class="time">צהריים</span><span class="txt">שייט רפסודות עץ רגוע בערוץ נהר <b>הדונאייץ (Dunajec)</b>.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-raft"/></svg></span><span class="time">צהריים</span><span class="txt">שייט רפסודות עץ רגוע בערוץ נהר <b>הדונאייץ (Dunajec)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Dunajec%20Gorge%20raft" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg></span><span class="time">אחה״צ</span><span class="txt">הגעה לקושצ׳ליסקו, צ׳ק־אין לדירה, והשלמת קניות ראשונית לקראת השבת.</span></li>
       </ul>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">31.07</span><span class="day-name">יום שישי</span></div>
+      <div class="day-head" data-date="2026-07-31"><span class="day-date">31.07</span><span class="day-name">יום שישי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">עמק קושצ׳ליסקו והכנות שבת</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-valley"/></svg></span><span class="time">בוקר</span><span class="txt">מסלול הליכה פסטורלי ומוצל בתוך <b>עמק קושצ׳ליסקו</b>. ניתן לשלב כרכרות סוסים. המסלול מודולרי — מסתובבים וחוזרים מתי שמרגישים שמיצינו.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-valley"/></svg></span><span class="time">בוקר</span><span class="txt">מסלול הליכה פסטורלי ומוצל בתוך <b>עמק קושצ׳ליסקו</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Dolina%20Koscieliska" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>. ניתן לשלב כרכרות סוסים. המסלול מודולרי — מסתובבים וחוזרים מתי שמרגישים שמיצינו.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-candle"/></svg></span><span class="time">צהריים–ערב</span><span class="txt">חזרה מוקדמת לדירה להיכנס ל"נוהל שבת" — זמן פתוח לבישולים, התארגנות ומנוחה לפני כניסת שבת.</span></li>
       </ul>
       <div class="note rest"><svg class="ic" viewBox="0 0 24 24"><use href="#i-rest"/></svg><span><span class="lbl">באפר שני:</span>מתוכנן.</span></div>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">01.08</span><span class="day-name">שבת</span></div>
+      <div class="day-head" data-date="2026-08-01"><span class="day-date">01.08</span><span class="day-name">שבת</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">מנוחה</div>
       <ul class="tl">
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-rest"/></svg></span><span class="time">כל היום</span><span class="txt">יום שבת שקט בכפר קושצ׳ליסקו.</span></li>
@@ -356,26 +401,26 @@
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">02.08</span><span class="day-name">יום ראשון</span></div>
+      <div class="day-head" data-date="2026-08-02"><span class="day-date">02.08</span><span class="day-name">יום ראשון</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">יום הפיצול והחלטות השטח · טריאז׳ דינמי</div>
       <p style="color:var(--muted);margin-bottom:16px">בבוקר המשפחה בוחרת אחת משתי אופציות, לפי הכוח והחשק:</p>
       <div class="choice">
         <div class="opt">
           <h4><svg class="ic" viewBox="0 0 24 24"><use href="#i-cablecar"/></svg>אופציה א׳ · גובה ורכבלים</h4>
-          <p>הזמנת כרטיסים מראש ועלייה ברכבל ל<b>קספרובי ויירך (Kasprowy Wierch)</b>, ואחר צהריים רגוע במדרחוב קרופובקי בזקופנה.</p>
+          <p>הזמנת כרטיסים מראש ועלייה ברכבל ל<b>קספרובי ויירך (Kasprowy Wierch)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Kasprowy%20Wierch" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>, ואחר צהריים רגוע במדרחוב קרופובקי בזקופנה.</p>
         </div>
         <div class="opt">
           <h4><svg class="ic" viewBox="0 0 24 24"><use href="#i-valley"/></svg>אופציה ב׳ · האתגר הרגלי</h4>
-          <p>יציאה מוקדמת מאוד (07:00) ל<b>מורסקיה אוקו (Morskie Oko)</b>. שימוש בכרכרות היכן שאפשר כדי לחסוך הליכה לצעיר, והקדשת רוב היום למסלול הזה.</p>
+          <p>יציאה מוקדמת מאוד (07:00) ל<b>מורסקיה אוקו (Morskie Oko)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Morskie%20Oko" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>. שימוש בכרכרות היכן שאפשר כדי לחסוך הליכה לצעיר, והקדשת רוב היום למסלול הזה.</p>
         </div>
       </div>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">03.08</span><span class="day-name">יום שני</span></div>
+      <div class="day-head" data-date="2026-08-03"><span class="day-date">03.08</span><span class="day-name">יום שני</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">יום אקסטרים</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-coaster"/></svg></span><span class="time">כל היום</span><span class="txt">נסיעה (כשעתיים) ל<b>אנרג׳ילנדיה (Energylandia)</b>. הפורקן המושלם לפערי הגילאים — רכבות הרים אינטנסיביות לבוגרים, ומתקנים מעולים ומותאמים לצעיר.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-coaster"/></svg></span><span class="time">כל היום</span><span class="txt">נסיעה (כשעתיים) ל<b>אנרג׳ילנדיה (Energylandia)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Energylandia%20Zator" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>. הפורקן המושלם לפערי הגילאים — רכבות הרים אינטנסיביות לבוגרים, ומתקנים מעולים ומותאמים לצעיר.</span></li>
       </ul>
     </article>
   </section>
@@ -389,27 +434,27 @@
     </div>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">04.08</span><span class="day-name">יום שלישי</span></div>
+      <div class="day-head" data-date="2026-08-04"><span class="day-date">04.08</span><span class="day-name">יום שלישי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">העוגן הרוחני ופיצול הציר</div>
       <ul class="tl">
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-candle"/></svg></span><span class="time">08:00</span><span class="txt">נהיגה לנובי סונץ׳ ותפילה בציון <b>הדברי חיים מצאנז</b>.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-candle"/></svg></span><span class="time">08:00</span><span class="txt">נהיגה לנובי סונץ׳ ותפילה בציון <b>הדברי חיים מצאנז</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Nowy%20Sacz%20Sanz%20Tzadik%20grave" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>.</span></li>
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-car"/></svg></span><span class="time">צהריים</span><span class="txt">המשך נסיעה לליז׳נסק.</span></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-candle"/></svg></span><span class="time">אחה״צ–ערב</span><span class="txt">תפילה בציון <b>רבי אלימלך מליז׳נסק</b>. התמקמות במתחם "הכנסת אורחים" ללילה, עם ארוחת ערב חמה במקום. (פיצול הנהיגה כאן מציל אותנו מתשה מוחלטת).</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-candle"/></svg></span><span class="time">אחה״צ–ערב</span><span class="txt">תפילה בציון <b>רבי אלימלך מליז׳נסק</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Elimelech%20Lezajsk%20grave" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>. התמקמות במתחם "הכנסת אורחים" ללילה, עם ארוחת ערב חמה במקום. (פיצול הנהיגה כאן מציל אותנו מתשה מוחלטת).</span></li>
       </ul>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">05.08</span><span class="day-name">יום רביעי</span></div>
+      <div class="day-head" data-date="2026-08-05"><span class="day-date">05.08</span><span class="day-name">יום רביעי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">קרקוב וסיום הטיול</div>
       <ul class="tl">
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-car"/></svg></span><span class="time">08:30</span><span class="txt">נסיעה מליז׳נסק לקרקוב (כשעתיים ורבע).</span></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-bag"/></svg></span><span class="time">צהריים+</span><span class="txt">אין אטרקציות מחייבות. חצי יום פתוח להסתובבות בעיר העתיקה, קניות אחרונות בקניון <b>גלריה קרקובסקה (Galeria Krakowska)</b>, החזרת הרכב ושינה מוקדמת.</span></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-bag"/></svg></span><span class="time">צהריים+</span><span class="txt">אין אטרקציות מחייבות. חצי יום פתוח להסתובבות בעיר העתיקה, קניות אחרונות בקניון <b>גלריה קרקובסקה (Galeria Krakowska)</b><a class="map" href="https://www.google.com/maps/search/?api=1&query=Galeria%20Krakowska" target="_blank" rel="noopener" aria-label="פתח במפות"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>מפה</a>, החזרת הרכב ושינה מוקדמת.</span></li>
       </ul>
       <div class="note rest"><svg class="ic" viewBox="0 0 24 24"><use href="#i-rest"/></svg><span><span class="lbl">באפר שלישי ואחרון:</span>יום פתוח לגמרי.</span></div>
     </article>
 
     <article class="day reveal">
-      <div class="day-head"><span class="day-date">06.08</span><span class="day-name">יום חמישי</span></div>
+      <div class="day-head" data-date="2026-08-06"><span class="day-date">06.08</span><span class="day-name">יום חמישי</span><span class="today-badge"><svg class="ic" viewBox="0 0 24 24"><use href="#i-pin"/></svg>היום</span></div>
       <div class="day-title">המראה</div>
       <ul class="tl">
         <li><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-alarm"/></svg></span><span class="time">02:30</span><span class="txt">השכמה לקראת טיסת <b>05:40</b> חזרה הביתה. ✈️</span></li>
@@ -422,7 +467,7 @@
 <footer>
   <p class="serif" style="font-size:1.3rem;color:var(--ink);margin-bottom:8px">נסיעה טובה ובטוחה 🌲</p>
   <p>נבנה באהבה <span class="heart">❤</span> למשפחה · קיץ 2026</p>
-  <p class="credit">תמונת הרקע: הרי הטטרה מנקודת התצפית גלודובקה · נחלת הכלל (Wikimedia Commons)</p>
+  <p class="credit">תמונת הרקע: הרי הטטרה מנקודת התצפית גלודובקה · נחלת הכלל · תמונת מורסקיה אוקו: Aneta Pawska, CC BY 3.0 (Wikimedia Commons)</p>
 </footer>
 
 <script>
@@ -456,6 +501,32 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
   },{threshold:.12, rootMargin:"0px 0px -8% 0px"});
   document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+  // ---- Divider photo: swap blur for full image ----
+  document.querySelectorAll(".divider .bg[data-src]").forEach(el=>{
+    const full=new Image();
+    full.onload=()=>{ el.style.backgroundImage=`url('${el.dataset.src}')`; };
+    full.src=el.dataset.src;
+  });
+
+  // ---- Today highlight (and dim past days) ----
+  (function(){
+    const now=new Date();
+    const todayISO = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
+    let matched=null;
+    document.querySelectorAll(".day-head[data-date]").forEach(head=>{
+      const card=head.closest(".day");
+      const d=head.dataset.date;
+      if(d===todayISO){ card.classList.add("today"); matched=card; }
+      else if(d < todayISO){ card.classList.add("past"); }
+    });
+    // If today is a trip day, gently scroll it into view after load
+    if(matched){
+      window.addEventListener("load",()=>{
+        setTimeout(()=>matched.scrollIntoView({behavior:"smooth",block:"center"}),600);
+      });
+    }
+  })();
 
   // ---- Nav active-section highlight ----
   const links = [...document.querySelectorAll("nav a")];
