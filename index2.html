@@ -273,6 +273,10 @@
   <div class="hint">לחצו כדי לראות בזמן אמת. (חלון זה מופיע רק ב-index2)</div>
   <div id="fontOpts"></div>
   <div class="cur" id="curFont"></div>
+
+  <h4 style="margin-top:14px">📅 הדגמת "היום"</h4>
+  <div class="hint">בחרו יום כדי לראות את ההדגשה, ה-badge, ועמעום הימים שחלפו.</div>
+  <select id="demoDay" style="width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:10px;font-family:'Heebo',sans-serif;color:var(--ink);background:#f6faf8;cursor:pointer"></select>
 </div>
 <script>
   const PAIRS=[
@@ -300,6 +304,39 @@
   });
   apply(0);
   document.querySelector("#fontpick .close").onclick=()=>document.getElementById("fontpick").style.display="none";
+
+  // ---- Demo-day picker: preview the "today" highlight on any trip day ----
+  const demoSel=document.getElementById("demoDay");
+  const dayLabels={
+    "":"— היום האמיתי —",
+    "2026-07-26":"א׳ · 26.07 · נחיתה",
+    "2026-07-27":"ב׳ · 27.07 · פסגות ואגם",
+    "2026-07-28":"ג׳ · 28.07 · צמרות ומערה",
+    "2026-07-29":"ד׳ · 29.07 · מפלים",
+    "2026-07-30":"ה׳ · 30.07 · שייט וגבול",
+    "2026-07-31":"ו׳ · 31.07 · עמק והכנות שבת",
+    "2026-08-01":"שבת · 01.08 · מנוחה",
+    "2026-08-02":"א׳ · 02.08 · יום פיצול",
+    "2026-08-03":"ב׳ · 03.08 · אנרג׳ילנדיה",
+    "2026-08-04":"ג׳ · 04.08 · ציוני מסורת",
+    "2026-08-05":"ד׳ · 05.08 · קרקוב",
+    "2026-08-06":"ה׳ · 06.08 · המראה",
+    "2026-08-20":"— אחרי הטיול —",
+  };
+  Object.entries(dayLabels).forEach(([v,label])=>{
+    const o=document.createElement("option");
+    o.value=v; o.textContent=label; demoSel.appendChild(o);
+  });
+  // default the demo to day 2 so the effect is visible immediately
+  demoSel.value="2026-07-27";
+  window.__DEMO_DATE="2026-07-27";
+  demoSel.onchange=()=>{
+    window.__DEMO_DATE = demoSel.value || null;
+    if(window.applyTodayHighlight) window.applyTodayHighlight(true);
+    if(window.renderCountdown) window.renderCountdown();
+  };
+  // apply the initial demo highlight (in case load already fired)
+  if(window.applyTodayHighlight) window.applyTodayHighlight(false);
 </script>
 
 <!-- ===== ICON DEFS (line icons, inherit currentColor) ===== -->
@@ -551,7 +588,23 @@
   const cd = document.getElementById("countdown");
   const live = document.getElementById("cdLive");
   const parts = [["ימים","d"],["שעות","h"],["דקות","m"],["שניות","s"]];
+  const tripStart = "2026-07-26", tripEnd = "2026-08-06";
   function render(){
+    // index2 demo: if a trip day is simulated, show the "on the trip" state
+    if(window.__DEMO_DATE){
+      const dd = window.__DEMO_DATE;
+      if(dd >= tripStart && dd <= tripEnd){
+        cd.style.display="none";
+        live.textContent = "אנחנו בטיול! 🎒";
+        return;
+      }
+      if(dd > tripEnd){
+        cd.style.display="none";
+        live.textContent = "חזרנו הביתה — עד הפעם הבאה! 🏡";
+        return;
+      }
+    }
+    cd.style.display="";
     let diff = Math.floor((target - new Date())/1000);
     if(diff <= 0){ cd.style.display="none"; live.textContent = "אנחנו בטיול! 🎒"; return; }
     const d=Math.floor(diff/86400); diff%=86400;
@@ -561,6 +614,7 @@
     cd.innerHTML = parts.map(([l,k])=>`<div class="cd-box"><div class="cd-num">${v[k]}</div><div class="cd-label">${l}</div></div>`).join("");
     live.textContent = "עד ההמראה למסע";
   }
+  window.renderCountdown = render;
   render(); setInterval(render,1000);
 
   // ---- Scroll reveal ----
@@ -577,23 +631,31 @@
   });
 
   // ---- Today highlight (and dim past days) ----
-  (function(){
-    const now=new Date();
-    const todayISO = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
+  // index2 playground: window.__DEMO_DATE (an ISO string) overrides "today" so
+  // you can preview the highlight on any trip day. Falls back to the real date.
+  function applyTodayHighlight(scroll){
+    let todayISO;
+    if(window.__DEMO_DATE){
+      todayISO = window.__DEMO_DATE;
+    } else {
+      const now=new Date();
+      todayISO = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
+    }
     let matched=null;
     document.querySelectorAll(".day-head[data-date]").forEach(head=>{
       const card=head.closest(".day");
       const d=head.dataset.date;
+      card.classList.remove("today","past");
       if(d===todayISO){ card.classList.add("today"); matched=card; }
       else if(d < todayISO){ card.classList.add("past"); }
     });
-    // If today is a trip day, gently scroll it into view after load
-    if(matched){
-      window.addEventListener("load",()=>{
-        setTimeout(()=>matched.scrollIntoView({behavior:"smooth",block:"center"}),600);
-      });
+    if(matched && scroll){
+      setTimeout(()=>matched.scrollIntoView({behavior:"smooth",block:"center"}),400);
     }
-  })();
+    return matched;
+  }
+  window.applyTodayHighlight = applyTodayHighlight;
+  window.addEventListener("load",()=>applyTodayHighlight(true));
 
   // ---- Nav active-section highlight ----
   const links = [...document.querySelectorAll("nav a")];
