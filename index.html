@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הטיול המשפחתי · סלובקיה ופולין 2026</title>
+<meta name="description" content="לוח הזמנים של הטיול המשפחתי — טטרה הגבוהים, הטטרה הפולני, וקרקוב · יולי–אוגוסט 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#f6f1e7;
+    --cream:#fbf8f1;
+    --ink:#2f2a24;
+    --muted:#8a7f70;
+    --line:#e5dccc;
+    --accent:#b0603d;      /* terracotta */
+    --accent-soft:#e8d9c8;
+    --pine:#5c6b53;         /* muted forest green */
+    --gold:#c69a4c;
+    --shadow:0 18px 40px -24px rgba(60,45,30,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Heebo',sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Frank Ruhl Libre',serif}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:80px 24px 64px;
+    background:
+      radial-gradient(1200px 500px at 80% -10%, rgba(198,154,76,.20), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(92,107,83,.22), transparent 55%),
+      linear-gradient(160deg,#fbf8f1 0%,#f2ead9 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 30 L15 8 L30 30 M22 30 L38 4 L54 30' fill='none' stroke='%235c6b53' stroke-width='1.2' opacity='0.10'/%3E%3C/svg%3E");
+    background-size:120px 60px;
+    opacity:.6;pointer-events:none;
+  }
+  .hero>*{position:relative;z-index:1}
+  .eyebrow{
+    letter-spacing:.35em;font-size:.8rem;color:var(--accent);
+    text-transform:uppercase;margin-bottom:20px;font-weight:500;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,7vw,5rem);font-weight:900;line-height:1.1;
+    color:var(--ink);margin-bottom:18px;
+  }
+  .hero .sub{font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--muted);max-width:640px}
+  .hero .dates{
+    margin-top:22px;display:inline-flex;gap:10px;align-items:center;
+    background:rgba(255,255,255,.6);border:1px solid var(--line);
+    padding:8px 18px;border-radius:999px;font-size:1rem;color:var(--ink);
+    backdrop-filter:blur(6px);
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{
+    margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .cd-box{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:14px 20px;min-width:88px;box-shadow:var(--shadow);
+  }
+  .cd-num{font-family:'Frank Ruhl Libre',serif;font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1}
+  .cd-label{font-size:.75rem;color:var(--muted);letter-spacing:.1em;margin-top:6px}
+  .cd-live{margin-top:18px;font-size:1.1rem;color:var(--pine);font-weight:500}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{max-width:1000px;margin:0 auto;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:12px 16px}
+  nav a{
+    text-decoration:none;color:var(--muted);font-weight:500;font-size:.92rem;
+    padding:7px 16px;border-radius:999px;transition:.2s;
+  }
+  nav a:hover{color:var(--accent);background:var(--accent-soft)}
+
+  /* ---------- SECTIONS ---------- */
+  main{max-width:820px;margin:0 auto;padding:64px 20px}
+  .part{margin-bottom:72px;scroll-margin-top:80px}
+  .part-head{text-align:center;margin-bottom:44px}
+  .part-tag{
+    display:inline-block;font-size:.8rem;letter-spacing:.25em;font-weight:500;
+    color:#fff;background:var(--pine);padding:5px 16px;border-radius:999px;margin-bottom:14px;
+  }
+  .part-head h2{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:900}
+  .part-head p{color:var(--muted);margin-top:8px;font-size:1.05rem}
+
+  /* ---------- DAY CARD ---------- */
+  .day{
+    background:var(--cream);border:1px solid var(--line);border-radius:22px;
+    padding:26px 28px;margin-bottom:22px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .day::before{
+    content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;
+    background:linear-gradient(var(--accent),var(--gold));
+  }
+  .day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .day-date{
+    font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.5rem;color:var(--accent);
+  }
+  .day-name{font-size:.95rem;color:var(--muted);font-weight:500}
+  .day-title{font-size:1.2rem;font-weight:700;color:var(--ink);margin:2px 0 16px}
+
+  /* timeline items */
+  .tl{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .tl li{display:flex;gap:14px;align-items:flex-start}
+  .tl .time{
+    flex-shrink:0;min-width:74px;font-weight:700;color:var(--pine);
+    font-size:.95rem;padding-top:1px;
+  }
+  .tl .dot{
+    flex-shrink:0;width:11px;height:11px;border-radius:50%;
+    background:var(--accent);margin-top:8px;border:2px solid var(--cream);
+    box-shadow:0 0 0 2px var(--accent-soft);
+  }
+  .tl .txt{flex:1}
+  .tl .txt b{color:var(--ink)}
+
+  /* callouts */
+  .note{
+    margin-top:16px;padding:12px 16px;border-radius:14px;font-size:.95rem;
+    background:#fff7ec;border:1px dashed var(--gold);color:#7a5a20;
+  }
+  .note.rest{background:#f0f3ec;border-color:var(--pine);color:#42513a}
+  .note .lbl{font-weight:700;margin-inline-end:6px}
+
+  /* triage choice */
+  .choice{display:grid;gap:14px;margin-top:6px}
+  @media(min-width:620px){.choice{grid-template-columns:1fr 1fr}}
+  .opt{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px;
+  }
+  .opt h4{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;color:var(--accent);margin-bottom:6px}
+  .opt p{font-size:.95rem;color:var(--ink)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;padding:48px 20px 60px;color:var(--muted);
+    border-top:1px solid var(--line);background:var(--cream);
+  }
+  footer .heart{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">מסע משפחתי · קיץ 2026</div>
+  <h1>סלובקיה &amp; פולין</h1>
+  <p class="sub">מהטטרה הגבוהים דרך העמקים הפולניים ועד קרקוב — שנים־עשר ימים של הרים, מים זורמים, מסורת ומנוחה.</p>
+  <div class="dates">📅 26 ביולי – 6 באוגוסט 2026</div>
+
+  <div class="countdown" id="countdown"></div>
+  <div class="cd-live" id="cdLive"></div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#part-a">חלק א׳ · סלובקיה</a>
+    <a href="#part-b">חלק ב׳ · פולין</a>
+    <a href="#part-c">חלק ג׳ · מסורת וקרקוב</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ PART A ============ -->
+  <section class="part" id="part-a">
+    <div class="part-head">
+      <span class="part-tag">חלק א׳</span>
+      <h2>סלובקיה — העוגן בטטרה הגבוהים</h2>
+      <p>ז׳דיאר · 26–29 ביולי</p>
+    </div>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">26.07</span><span class="day-name">יום ראשון</span></div>
+      <div class="day-title">נחיתה וחדירה לשטח הסלובקי</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">14:00</span><span class="txt">נחיתה בשדה התעופה בקרקוב (KRK), איסוף הרכב השכור.</span></li>
+        <li><span class="dot"></span><span class="time">15:30</span><span class="txt">תחילת נסיעה דרומה.</span></li>
+        <li><span class="dot"></span><span class="time">17:00</span><span class="txt">עצירה להצטיידות בסופרמרקט גדול (פולני או סלובקי) — ירקות, מוצרי בסיס וכל מה שצריך כדי לבשל את נתחי הבשר במטבח המאובזר שמחכה לנו.</span></li>
+        <li><span class="dot"></span><span class="time">18:30</span><span class="txt">צ׳ק־אין ל<b>"Chatka u Bratka"</b> בז׳דיאר וארוחת ערב ראשונה במרפסת.</span></li>
+      </ul>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">27.07</span><span class="day-name">יום שני</span></div>
+      <div class="day-title">פסגות הגובה ואגם אלפיני</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">בוקר</span><span class="txt">עלייה ברכבל מטטרנסקה לומניצה לתחנת האגם <b>Skalnaté Pleso</b>. מסלול הליכה קליל מסביב לאגם וזמן משחקים ב־Marmot Land.</span></li>
+        <li><span class="dot"></span><span class="time">צהריים</span><span class="txt">ירידה לעיירה.</span></li>
+        <li><span class="dot"></span><span class="time">אחה״צ</span><span class="txt">קפיצה קצרה לאגם <b>שטרבסקה פלסו (Štrbské Pleso)</b> להליכה נינוחה.</span></li>
+        <li><span class="dot"></span><span class="time">ערב</span><span class="txt">חזרה לבקתה.</span></li>
+      </ul>
+      <div class="note"><span class="lbl">טריאז׳ דינמי:</span>רכבת ההרים Tatrabob — רק אם אין תור ארוך.</div>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">28.07</span><span class="day-name">יום שלישי</span></div>
+      <div class="day-title">נוף צמרות ועומק האדמה</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">בוקר</span><span class="txt">הליכה ל<b>"שביל צמרות העצים" (Bachledka Treetop Walk)</b> הנמצא ממש קרוב אלינו בז׳דיאר.</span></li>
+        <li><span class="dot"></span><span class="time">צהריים</span><span class="txt">חזרה לבקתה למנוחה וצהריים.</span></li>
+        <li><span class="dot"></span><span class="time">אחה״צ</span><span class="txt">אופציונלי — אם יש אנרגיה, סיור במערת בליאנסקה (Belianska jaskyňa). אם רוצים לנוח, נשארים באווירה הרגועה של הבקתה.</span></li>
+      </ul>
+      <div class="note rest"><span class="lbl">באפר ראשון:</span>חצי יום פתוח להורדת הילוך.</div>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">29.07</span><span class="day-name">יום רביעי</span></div>
+      <div class="day-title">טבע זורם במקום פארק מים</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">בוקר–צהריים</span><span class="txt">נסיעה ל־<b>Hrebienok</b> (עלייה בפוניקולר מסמוקובץ) והליכה מרהיבה וקלילה במסלול מפלי <b>Studený Potok</b>. טבע נקי, זורם וייחודי לאזור — בלי ההמוניות של פארקי המים.</span></li>
+        <li><span class="dot"></span><span class="time">אחה״צ</span><span class="txt">חזרה רגועה לכיוון ז׳דיאר, אפשרות לעצירות ספונטניות בעיירות בדרך וסגירת פרק סלובקיה ברוגע.</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============ PART B ============ -->
+  <section class="part" id="part-b">
+    <div class="part-head">
+      <span class="part-tag">חלק ב׳</span>
+      <h2>פולין — הטטרה הפולני ושבת מנוחה</h2>
+      <p>קושצ׳ליסקו · 30 ביולי – 3 באוגוסט</p>
+    </div>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">30.07</span><span class="day-name">יום חמישי</span></div>
+      <div class="day-title">חציית גבול ושייט מסורתי</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">בוקר</span><span class="txt">צ׳ק־אאוט ונסיעה צפונה (ללא פקקי בוקר של חצייה כפולה).</span></li>
+        <li><span class="dot"></span><span class="time">צהריים</span><span class="txt">שייט רפסודות עץ רגוע בערוץ נהר <b>הדונאייץ (Dunajec)</b>.</span></li>
+        <li><span class="dot"></span><span class="time">אחה״צ</span><span class="txt">הגעה לקושצ׳ליסקו, צ׳ק־אין לדירה, והשלמת קניות ראשונית לקראת השבת.</span></li>
+      </ul>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">31.07</span><span class="day-name">יום שישי</span></div>
+      <div class="day-title">עמק קושצ׳ליסקו והכנות שבת</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">בוקר</span><span class="txt">מסלול הליכה פסטורלי ומוצל בתוך <b>עמק קושצ׳ליסקו</b>. ניתן לשלב כרכרות סוסים. המסלול מודולרי — מסתובבים וחוזרים מתי שמרגישים שמיצינו.</span></li>
+        <li><span class="dot"></span><span class="time">צהריים–ערב</span><span class="txt">חזרה מוקדמת לדירה להיכנס ל"נוהל שבת" — זמן פתוח לבישולים, התארגנות ומנוחה לפני כניסת שבת.</span></li>
+      </ul>
+      <div class="note rest"><span class="lbl">באפר שני:</span>מתוכנן.</div>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">01.08</span><span class="day-name">שבת</span></div>
+      <div class="day-title">מנוחה</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">כל היום</span><span class="txt">יום שבת שקט בכפר קושצ׳ליסקו.</span></li>
+      </ul>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">02.08</span><span class="day-name">יום ראשון</span></div>
+      <div class="day-title">יום הפיצול והחלטות השטח · טריאז׳ דינמי</div>
+      <p style="color:var(--muted);margin-bottom:16px">בבוקר המשפחה בוחרת אחת משתי אופציות, לפי הכוח והחשק:</p>
+      <div class="choice">
+        <div class="opt">
+          <h4>אופציה א׳ · גובה ורכבלים</h4>
+          <p>הזמנת כרטיסים מראש ועלייה ברכבל ל<b>קספרובי ויירך (Kasprowy Wierch)</b>, ואחר צהריים רגוע במדרחוב קרופובקי בזקופנה.</p>
+        </div>
+        <div class="opt">
+          <h4>אופציה ב׳ · האתגר הרגלי</h4>
+          <p>יציאה מוקדמת מאוד (07:00) ל<b>מורסקיה אוקו (Morskie Oko)</b>. שימוש בכרכרות היכן שאפשר כדי לחסוך הליכה לצעיר, והקדשת רוב היום למסלול הזה.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">03.08</span><span class="day-name">יום שני</span></div>
+      <div class="day-title">יום אקסטרים</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">כל היום</span><span class="txt">נסיעה (כשעתיים) ל<b>אנרג׳ילנדיה (Energylandia)</b>. הפורקן המושלם לפערי הגילאים — רכבות הרים אינטנסיביות לבוגרים, ומתקנים מעולים ומותאמים לצעיר.</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============ PART C ============ -->
+  <section class="part" id="part-c">
+    <div class="part-head">
+      <span class="part-tag">חלק ג׳</span>
+      <h2>ציר מסורת וקרקוב</h2>
+      <p>4–6 באוגוסט</p>
+    </div>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">04.08</span><span class="day-name">יום שלישי</span></div>
+      <div class="day-title">העוגן הרוחני ופיצול הציר</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">08:00</span><span class="txt">נהיגה לנובי סונץ׳ ותפילה בציון <b>הדברי חיים מצאנז</b>.</span></li>
+        <li><span class="dot"></span><span class="time">צהריים</span><span class="txt">המשך נסיעה לליז׳נסק.</span></li>
+        <li><span class="dot"></span><span class="time">אחה״צ–ערב</span><span class="txt">תפילה בציון <b>רבי אלימלך מליז׳נסק</b>. התמקמות במתחם "הכנסת אורחים" ללילה, עם ארוחת ערב חמה במקום. (פיצול הנהיגה כאן מציל אותנו מתשה מוחלטת).</span></li>
+      </ul>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">05.08</span><span class="day-name">יום רביעי</span></div>
+      <div class="day-title">קרקוב וסיום הטיול</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">08:30</span><span class="txt">נסיעה מליז׳נסק לקרקוב (כשעתיים ורבע).</span></li>
+        <li><span class="dot"></span><span class="time">צהריים+</span><span class="txt">אין אטרקציות מחייבות. חצי יום פתוח להסתובבות בעיר העתיקה, קניות אחרונות בקניון <b>גלריה קרקובסקה (Galeria Krakowska)</b>, החזרת הרכב ושינה מוקדמת.</span></li>
+      </ul>
+      <div class="note rest"><span class="lbl">באפר שלישי ואחרון:</span>יום פתוח לגמרי.</div>
+    </article>
+
+    <article class="day">
+      <div class="day-head"><span class="day-date">06.08</span><span class="day-name">יום חמישי</span></div>
+      <div class="day-title">המראה</div>
+      <ul class="tl">
+        <li><span class="dot"></span><span class="time">02:30</span><span class="txt">השכמה לקראת טיסת <b>05:40</b> חזרה הביתה. ✈️</span></li>
+      </ul>
+    </article>
+  </section>
+
+</main>
+
+<footer>
+  <p class="serif" style="font-size:1.3rem;color:var(--ink);margin-bottom:8px">נסיעה טובה ובטוחה 🌲</p>
+  <p>נבנה באהבה <span class="heart">❤</span> למשפחה · קיץ 2026</p>
+</footer>
+
+<script>
+  // Countdown to departure: 26 July 2026, 14:00 (landing)
+  const target = new Date("2026-07-26T14:00:00+02:00");
+  const cd = document.getElementById("countdown");
+  const live = document.getElementById("cdLive");
+  const parts = [["ימים","d"],["שעות","h"],["דקות","m"],["שניות","s"]];
+
+  function render(){
+    const now = new Date();
+    let diff = Math.floor((target - now)/1000);
+    if(diff <= 0){
+      cd.style.display="none";
+      live.textContent = "אנחנו בטיול! 🎒";
+      return;
+    }
+    const d = Math.floor(diff/86400); diff%=86400;
+    const h = Math.floor(diff/3600);  diff%=3600;
+    const m = Math.floor(diff/60);
+    const s = diff%60;
+    const vals = {d,h,m,s};
+    cd.innerHTML = parts.map(([lbl,k])=>
+      `<div class="cd-box"><div class="cd-num">${vals[k]}</div><div class="cd-label">${lbl}</div></div>`
+    ).join("");
+    live.textContent = "עד ההמראה למסע";
+  }
+  render();
+  setInterval(render,1000);
+</script>
+</body>
+</html>
